@@ -32,7 +32,8 @@ Integration examples for using Hugging Face datasets with Akave's S3-compatible 
   7. Loading and saving pre-existing datasets
 
 **Configuration:**
-Requires a `.env` file in the `huggingface/` directory with:
+
+**An example `.env.example` file is included in the `huggingface/` directory:**
 ```env
 AKAVE_ACCESS_KEY=your_access_key
 AKAVE_SECRET_KEY=your_secret_key
@@ -40,13 +41,7 @@ AKAVE_ENDPOINT_URL=your_endpoint_url
 AKAVE_BUCKET_NAME=your_bucket_name
 ```
 
-**Example `.env` file:**
-```env
-AKAVE_ACCESS_KEY=your_access_key
-AKAVE_SECRET_KEY=your_secret_key
-AKAVE_ENDPOINT_URL=your_endpoint_url
-AKAVE_BUCKET_NAME=your_bucket_name
-```
+To use the example, copy the `.env.example` file to a new `.env` file in the `huggingface/` directory and fill in your actual credentials.
 
 ### 📁 `s3fs/`
 
