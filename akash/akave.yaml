@@ -36,7 +36,7 @@ services:
           # Configure AWS CLI for Akave
           aws configure set aws_access_key_id "$AKAVE_ACCESS" --profile akave
           aws configure set aws_secret_access_key "$AKAVE_SECRET" --profile akave
-          aws configure set region us-east-1 --profile akave
+          aws configure set region akave-network --profile akave
 
           mkdir -p /data /www
 
