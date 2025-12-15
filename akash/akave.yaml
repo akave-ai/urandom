@@ -45,24 +45,19 @@ services:
           echo "HTTP server started on port 8080"
 
           ############################################################
-          # Background upload loop (less frequent)
+          # One-time upload
           ############################################################
-          (
-            echo "Upload loop starting (every ${UPLOAD_INTERVAL}s)"
-            while true; do
-              ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-              file="/data/test-$ts.txt"
-              echo "hello from akash at $ts" > "$file"
+          echo "Performing one-time upload"
+          ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          file="/data/test-$ts.txt"
+          echo "hello from akash at $ts" > "$file"
 
-              aws s3 cp "$file" \
-                "s3://$AKAVE_BUCKET/akash-test/test-$ts.txt" \
-                --endpoint-url "$AKAVE_ENDPOINT" \
-                --profile akave
+          aws s3 cp "$file" \
+            "s3://$AKAVE_BUCKET/akash-test/test-$ts.txt" \
+            --endpoint-url "$AKAVE_ENDPOINT" \
+            --profile akave
 
-              echo "Uploaded test-$ts.txt to Akave"
-              sleep "$UPLOAD_INTERVAL"
-            done
-          ) &
+          echo "Uploaded test-$ts.txt to Akave"
 
           ############################################################
           # Foreground refresh + HTML render loop (every REFRESH_INTERVAL)
