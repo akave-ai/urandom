@@ -70,7 +70,6 @@ services:
             # List objects to TSV: KEY \t SIZE \t LASTMOD
             if aws s3api list-objects-v2 \
                  --bucket "$AKAVE_BUCKET" \
-                 --prefix "akash-test/" \
                  --endpoint-url "$AKAVE_ENDPOINT" \
                  --profile akave \
                  --output json \
@@ -87,7 +86,6 @@ services:
               echo "<html><head><title>Akave Akash Test</title></head><body>"
               echo "<h1>Akave + Akash Live Test</h1>"
               echo "<p><b>Bucket:</b> $AKAVE_BUCKET</p>"
-              echo "<p><b>Prefix:</b> akash-test/</p>"
               echo "<p><b>Upload interval:</b> ${UPLOAD_INTERVAL}s</p>"
               echo "<p><b>Refresh interval:</b> ${REFRESH_INTERVAL}s</p>"
               echo "<h2>Objects (click to download via pre-signed URL, 1h TTL)</h2>"
