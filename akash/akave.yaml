@@ -9,7 +9,6 @@ services:
       - AKAVE_BUCKET=<bucket>      # replace with your bucket name
       - AKAVE_ACCESS=<access>      # replace with your akave access key
       - AKAVE_SECRET=<secret>      # replace with your secret key
-      - UPLOAD_INTERVAL=86400    # seconds between uploads (1 day)
       - REFRESH_INTERVAL=60    # seconds between HTML refreshes
     expose:
       - port: 8080
@@ -86,7 +85,6 @@ services:
               echo "<html><head><title>Akave Akash Test</title></head><body>"
               echo "<h1>Akave + Akash Live Test</h1>"
               echo "<p><b>Bucket:</b> $AKAVE_BUCKET</p>"
-              echo "<p><b>Upload interval:</b> ${UPLOAD_INTERVAL}s</p>"
               echo "<p><b>Refresh interval:</b> ${REFRESH_INTERVAL}s</p>"
               echo "<h2>Objects (click to download via pre-signed URL, 1h TTL)</h2>"
               echo "<table border='1' cellpadding='4' cellspacing='0'>"
